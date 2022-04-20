@@ -7,11 +7,11 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* @media only screen and (max-width: 400px) {
+  .App {
+  
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;

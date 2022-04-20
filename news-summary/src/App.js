@@ -1,12 +1,20 @@
 import './App.css';
 import Feed from './Feed'
+import { Typography } from '@mui/material';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <h1>News Summary</h1>
-      <Feed />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Typography variant="h1" component="h2">
+          News Summary
+        </Typography>
+        <Routes>
+          <Route exact path="/" element={<Feed />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
