@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { red } from "@mui/material/colors";
-import { Avatar, Badge, Box, Card, CardContent, CardHeader, CardMedia, FormControl, Grid, Input, InputAdornment, Link, Typography, Stack } from "@mui/material";
+import { Avatar, Badge, Card, CardContent, CardHeader, CardMedia, FormControl, Grid, Input, InputAdornment, Link, Typography, Stack } from "@mui/material";
 import Icon from "@mui/material/Icon";
-import MailIcon from "@mui/icons-material/Mail";
 
 const api_key = "f7952ab1-2fe1-4dbd-9dbb-f97bdc0f3fca";
+
 
 export default function Feed() {
   const [data, setData] = useState([]);
@@ -27,13 +27,7 @@ export default function Feed() {
 console.log(data)
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
+    <div>
       <FormControl
         type="submit"
         sx={{
@@ -56,24 +50,19 @@ console.log(data)
         />
       </FormControl>
       <article className="articles">
-        {filtered.length !== 0 &&
+        {filtered.length !== 0 && (
           filtered.map((item) => {
             return (
-              <Grid container spacing={2} key={item.id}>
-                <Grid item xs={6} md={4}>
-                  <Stack spacing={2} direction="row">
-                    <Badge
-                      badgeContent={item.pillarName}
-                      color="secondary"
-                    >
-                      <MailIcon color="action" />
-                    </Badge>
-                    <Badge badgeContent={item.sectionName} color="success">
-                      <MailIcon color="action" />
-                    </Badge>
-                  </Stack>
-                </Grid>
-                <Grid item xs={6} md={8}>
+              <Grid
+                container
+                spacing={4}
+                direction="row"
+                justifyContent="space-evenly"
+                alignItems="center"
+                style={{ minHeight: "80vh" }}
+                key={item.id}
+              >
+                <Grid item xs={3} sm={6} md={4}>
                   <Card variant="outlined" sx={{ marginBottom: 5 }}>
                     <Link href={item.webUrl} color="primary" underline="none">
                       <CardHeader
@@ -89,10 +78,29 @@ console.log(data)
                         subheader={item.webPublicationDate}
                       />
                     </Link>
+                    <Stack
+                      spacing={7}
+                      direction="row"
+                      sx={{
+                        marginLeft: 5,
+                      }}
+                    >
+                      <Badge
+                        badgeContent={item.pillarName}
+                        color="secondary"
+                      ></Badge>
+                      <Badge
+                        badgeContent={item.sectionName}
+                        color="success"
+                      ></Badge>
+                    </Stack>
                     <CardMedia
                       component="img"
                       src={item.fields.thumbnail}
                       alt="pics"
+                      sx={{
+                        marginTop: 2,
+                      }}
                     />
                     <CardContent>
                       <Typography paragraph>
@@ -108,9 +116,9 @@ console.log(data)
                 </Grid>
               </Grid>
             );
-          })}
+          }))}
       </article>
-    </Box>
+    </div>
   );
 }
 
