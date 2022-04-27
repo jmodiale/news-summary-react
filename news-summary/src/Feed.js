@@ -55,14 +55,14 @@ console.log(data)
             return (
               <Grid
                 container
-                spacing={4}
+                spacing={2}
                 direction="row"
                 justifyContent="space-evenly"
                 alignItems="center"
                 style={{ minHeight: "80vh" }}
                 key={item.id}
               >
-                <Grid item xs={3} sm={6} md={4}>
+                <Grid item xs={4}>
                   <Card variant="outlined" sx={{ marginBottom: 5 }}>
                     <Link href={item.webUrl} color="primary" underline="none">
                       <CardHeader
@@ -122,4 +122,5 @@ console.log(data)
   );
 }
 
+// https://random-data-api.com/api/users/random_user?size=10
 // `https://www.theguardian.com/${item.id}`

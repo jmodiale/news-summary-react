@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Typography variant="h1" component="h2">
+        <Typography variant="h1" component="h3">
           News Summary
         </Typography>
         <Routes>
