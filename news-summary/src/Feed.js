@@ -37,6 +37,7 @@ console.log(data)
         <Input
           value={entry}
           type="search"
+          placeholder="Search"
           onChange={(e) => setEntry(e.target.value)}
           endAdornment={
             <InputAdornment position="end">
